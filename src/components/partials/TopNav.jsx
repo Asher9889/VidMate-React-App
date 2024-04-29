@@ -1,10 +1,28 @@
 import { Link } from "react-router-dom";
 import Image from "../../assets/noimage.jpg"
+import { useState, useEffect } from "react";
+import axios from "../../utils/axios";
 
 
-const TopNav = ({query,searches, setQuery}) => {
+const TopNav = () => {
 
+  const [query, setQuery] = useState("");
+  const [searches, setSearches] = useState([]);
 
+  const getSearches = async () => {
+    try {
+      const d = await axios.get(`/search/multi?query=${query}`);
+      const { results } = d.data;
+      setSearches(results);
+      // console.log(results);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getSearches();
+  }, [query]);
   return (
     <>
       <div className="w-[60vw] h-[10%] mb-2 relative text-zinc-300 py-2 text-2xl gap-4 ml-[20%] flex items-center">

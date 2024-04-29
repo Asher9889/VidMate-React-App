@@ -11,6 +11,7 @@ const Routing = () => {
       <Routes>
         <Route path='/' element={<Home/>} />
         <Route path='/trending' element={<Trending/>} />
+        <Route path='/load' element={<Loading/>} />
       </Routes>
     </div>
   )
