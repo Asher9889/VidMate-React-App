@@ -2,22 +2,13 @@ import React from "react";
 import DropDown from "./DropDown";
 import axios from "axios";
 
-const Trending = ({ trending, setCategory }) => {
+const HorizontalCard = ({ trending, setCategory }) => {
   return (
     <>
-      <div className="flex items-center justify-between pr-10">
-        <p className="text-xl p-2 pl-6  h-10 font-inter font-semibold text-zinc-400">
-          Trending
-        </p>
-        <DropDown
-          title={"Filter"}
-          options={["all", "movie", "tv"]}
-          func={(e)=>setCategory(e.target.value)}
-        />
-      </div>
+      
 
-      <div className="w-full h-[36.5vh] rounded-md p-2 overflow-x-scroll overflow-y-hidden  ">
-        <div className="w-fit h-[35vh] rounded-md    p-1 flex flex-row gap-3 overflow-x-scroll  ">
+      <div className="w-full h-[45vh] rounded-md p-2 mb-6 overflow-y-hidden ">
+        <div className="w-fit h-[40vh] rounded-md overflow-x-scroll    p-1 flex flex-row gap-3  ">
           {trending.map((elem, index) => (
             <div
               key={elem.id}
@@ -51,4 +42,4 @@ const Trending = ({ trending, setCategory }) => {
   );
 };
 
-export default Trending;
+export default HorizontalCard;

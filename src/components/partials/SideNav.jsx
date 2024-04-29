@@ -3,18 +3,18 @@ import { Link } from "react-router-dom";
 
 const SideNav = () => {
   return (
-    <div className="w-[20%] h-screen border-r-2 border-zinc-500 px-5 py-5 ">
+    <div className="w-[20%] sticky top-0 right-0 h-screen border-r-2 border-zinc-500 px-5 py-5 ">
       <div className="text-2xl">
         <i class="ri-tv-fill text-[#6556CD]"></i>
-        <span className="text-xl ml-2 text-white font-bold">VidMate</span>
+        <Link to="/" className="text-xl ml-2 text-white font-bold">VidMate</Link>
       </div>
 
       <div className="mt-5">
         <nav className="text-md flex flex-col gap-2 ">
           <h1 className=" text-white font-semibold mb-2">New Feeds</h1>
 
-          <Link className="py-2 px-3 rounded-lg hover:bg-[#6556CD] hover:text-white duration-200 text-zinc-400"> <i class="ri-fire-fill"></i> Trending</Link>
-          <Link className="py-2 px-3 rounded-lg hover:bg-[#6556CD] hover:text-white duration-200 text-zinc-400"> <i class="ri-bard-fill"></i> Popular</Link>
+          <Link to="/trending" className="py-2 px-3 rounded-lg hover:bg-[#6556CD] hover:text-white duration-200 text-zinc-400"> <i class="ri-fire-fill"></i> Trending</Link>
+          <Link to="/popular" className="py-2 px-3 rounded-lg hover:bg-[#6556CD] hover:text-white duration-200 text-zinc-400"> <i class="ri-bard-fill"></i> Popular</Link>
           <Link className="py-2 px-3 rounded-lg hover:bg-[#6556CD] hover:text-white duration-200 text-zinc-400"> <i class="ri-film-fill"></i> Movies</Link>
           <Link className="py-2 px-3 rounded-lg hover:bg-[#6556CD] hover:text-white duration-200 text-zinc-400"> <i class="ri-slideshow-fill"></i> Tv Shows</Link>
           <Link className="py-2 px-3 rounded-lg hover:bg-[#6556CD] hover:text-white duration-200 text-zinc-400"> <i class="ri-team-fill"></i> People</Link>

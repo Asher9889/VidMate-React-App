@@ -1,17 +1,18 @@
-import Trending from "./partials/Trending";
+import HorizontalCard from "./partials/HorizontalCard";
 import SideNav from "./partials/SideNav";
 import TopNav from "./partials/TopNav";
-import Header from "./header/Header";
+import Header from "./partials/Header";
 import axios from "../utils/axios";
 import React, { useEffect, useState } from "react";
-
+import DropDown from "./partials/DropDown";
+import Loading from "./Loading"
 
 const Home = () => {
-  document.title = "VidMate Home Page";
+  document.title = "Home Page";
 
   const [query, setQuery] = useState("");
   const [searches, setSearches] = useState([]);
-  const[category, setCategory] = useState("all") 
+  const [category, setCategory] = useState("all");
 
   const getSearches = async () => {
     try {
@@ -28,7 +29,6 @@ const Home = () => {
     getSearches();
   }, [query]);
 
-
   const [singleWallpaper, setSingleWallpaper] = useState();
 
   const headerWallpaper = async () => {
@@ -39,7 +39,7 @@ const Home = () => {
       // console.log(singleData);
       setSingleWallpaper(singleData);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   };
 
@@ -47,11 +47,9 @@ const Home = () => {
     headerWallpaper();
   }, []);
 
- 
-  const [trending, setTrending] = useState([])
+  const [trending, setTrending] = useState([]);
 
-  const getTrending = async ()=>{
-
+  const getTrending = async () => {
     try {
       const d = await axios.get(`/trending/${category}/week`);
       const { results } = d.data;
@@ -61,26 +59,34 @@ const Home = () => {
       console.log(error);
     }
   };
-  useEffect(()=>{
-    getTrending()
-  },[category])
-
-
- 
-
-   
+  useEffect(() => {
+    getTrending();
+  }, [category]);
 
   return (
-    <>
-      <div className="w-full h-screen flex">
+    <>{singleWallpaper && trending ? (
+      <div className="w-full bg-[#1F1E24] h-fit flex">
         <SideNav />
 
-        <div className="w-[80%] h-screen">
+        <div className="w-[80%] h-fit">
           <TopNav query={query} setQuery={setQuery} searches={searches} />
-          <Header singleWallpaper={singleWallpaper}/>
-          <Trending trending={trending} setCategory={setCategory}/>
+          <Header singleWallpaper={singleWallpaper} />
+          <div className="flex my-2 items-center justify-between pr-10">
+            <p className="text-xl p-2 pl-6  h-10 font-inter font-semibold text-zinc-400">
+              Trending
+            </p>
+            <DropDown
+              title={"Filter"}
+              options={["all", "movie", "tv"]}
+              func={(e) => setCategory(e.target.value)}
+            />
+          </div>
+
+          <HorizontalCard trending={trending} setCategory={setCategory} />
         </div>
       </div>
+    ) : <Loading/>}
+      
     </>
   );
 };

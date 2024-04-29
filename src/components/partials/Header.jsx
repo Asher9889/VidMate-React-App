@@ -1,6 +1,7 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
+import Loading from "../Loading"
 
 const Header = ({singleWallpaper}) => {
   
@@ -10,7 +11,7 @@ const Header = ({singleWallpaper}) => {
     <div className="w-full  relative transition-all">
        { singleWallpaper ? <>
       <img
-        className="w-full h-[45vh] object-cover object-top"
+        className="w-full h-[55vh] object-cover object-top"
         src={`https://image.tmdb.org/t/p/original/${
           singleWallpaper.backdrop_path ||
           singleWallpaper.poster_path ||
@@ -42,7 +43,7 @@ const Header = ({singleWallpaper}) => {
         
         
       </div>
-      </> : <>Loading</> }
+      </> : null }
     </div>
   );
 };

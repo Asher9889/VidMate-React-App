@@ -7,7 +7,7 @@ const TopNav = ({query,searches, setQuery}) => {
 
   return (
     <>
-      <div className="w-[60vw] h-[10%] relative text-zinc-300 py-2 text-2xl gap-4 ml-[20%] flex items-center">
+      <div className="w-[60vw] h-[10%] mb-2 relative text-zinc-300 py-2 text-2xl gap-4 ml-[20%] flex items-center">
         <i class="ri-search-line"></i>
         <input
           onChange={(e) => setQuery(e.target.value)}
