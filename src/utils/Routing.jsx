@@ -2,7 +2,8 @@ import React from 'react';
 import { Routes, Route} from 'react-router-dom';
 import Home from '../components/Home';
 import Trending from '../components/Trending';
-import Loading from '../components/Loading';
+import Popular from '../components/Popular';
+
 
 const Routing = () => {
   return (
@@ -11,7 +12,7 @@ const Routing = () => {
       <Routes>
         <Route path='/' element={<Home/>} />
         <Route path='/trending' element={<Trending/>} />
-        <Route path='/load' element={<Loading/>} />
+        <Route path='/popular' element={<Popular/>} />
       </Routes>
     </div>
   )

@@ -8,48 +8,50 @@ import Loading from "./Loading";
 import Card from "./partials/Card";
 import InfiniteScroll from 'react-infinite-scroll-component';
 
-const Trending = () => {
+const Popular = () => {
   const navigate = useNavigate();
 
-  const [category, setCategory] = useState("all");
-  const [duration, setDuration] = useState("week");
+  const [category, setCategory] = useState("movie");
+  const [popular, setPopular] = useState([]);
   let [page, setPage] = useState(1);
 
-  const [trending, setTrending] = useState([]);
-
-  const trendingAPI = async () => {
+  const popularAPI = async () => {
     try {
       setPage(page + 1)
-      const d = await axios.get(`/trending/${category}/${duration}?page=${page}`);
+      const d = await axios.get(`/${category}/popular?page=${page}`);
       const { results } = d.data;
-      // setTrending(results)
-      setTrending((prev) => [...prev, ...results]);
+      // setPopular(results)
+      setPopular((prev) => [...prev, ...results]);
       console.log(results);
     } catch (error) {
       console.log(error);
     }
   };
   useEffect(() => {
-    setTrending([])
-    trendingAPI();
-  }, [category, duration]);
+    setPopular([])
+    popularAPI();
+  }, [category]);
 
-  // const trendingAPI2 = async () => {
+  // const popularAPI2 = async () => {
   //   try {
-  //     setPage(page + 1);
-  //     const d = await axios.get(`/trending?page=${page}`);
+  //     setPage(page + 1)
+  //     const d = await axios.get(`/${category}/popular?page=${page}`);
   //     const { results } = d.data;
-  //     // setTrending(results)
-  //     setTrending((prev) => [...prev, ...results]);
+  //     setTrending(results)
+  //     // setTrending((prev) => [...prev, ...results]);
   //     console.log(results);
   //   } catch (error) {
   //     console.log(error);
   //   }
   // };
+  // useEffect(()=>{
+  //   setPopular([])
+  //   popularAPI2()
+  // },[category])
 
   return (
     <>
-      {trending.length > 0 ? (
+      {popular.length > 0 ? (
         <div className="w-full h-fit px-5 bg-[#1F1E24] ">
           <div className="w-full sticky py-2 top-[0px] flex bg-[#1F1E24] items-center justify-center">
             <span className="text-xl h-fit text-zinc-400 font-semibold font-inter flex items-center justify-center">
@@ -57,7 +59,7 @@ const Trending = () => {
                 onClick={() => navigate(-1)}
                 class="ri-arrow-left-line pr-2 cursor-pointer hover:text-[#6556CD]"
               ></i>
-              Trending{" "}
+              Popular{" "}
             </span>
 
             <div className="flex-1 flex items-center justify-center">
@@ -66,26 +68,20 @@ const Trending = () => {
 
             <DropDown
               title="Category"
-              options={["all", "tv","movie", "person"]}
+              options={["tv","movie", "person"]}
               func={(e) => setCategory(e.target.value)}
-            />
-            <div className="w-4"></div>
-            <DropDown
-              title="Duration"
-              options={["day", "week"]}
-              func={(e) => setDuration(e.target.value)}
             />
             
           </div>
 
           <InfiniteScroll
-            dataLength={trending.length}
-            next={trendingAPI}
+            dataLength={popular.length}
+            next={popularAPI}
             hasMore={true}
             loader={<h1>Loading.....</h1>}
           >
 
-           <Card item={trending}/>
+           <Card item={popular}/>
 
           </InfiniteScroll>
 
@@ -97,4 +93,4 @@ const Trending = () => {
   );
 };
 
-export default Trending;
+export default Popular;
