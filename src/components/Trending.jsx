@@ -17,6 +17,8 @@ const Trending = () => {
 
   const [trending, setTrending] = useState([]);
 
+  document.title = "Trending " + category.toUpperCase();
+
   const trendingAPI = async () => {
     try {
       setPage(page + 1)
@@ -50,14 +52,14 @@ const Trending = () => {
   return (
     <>
       {trending.length > 0 ? (
-        <div className="w-full h-fit px-5 bg-[#1F1E24] ">
-          <div className="w-full sticky py-2 top-[0px] flex bg-[#1F1E24] items-center justify-center">
+        <div className="w-full h-fit  bg-[#1F1E24] ">
+          <div className="w-full sticky z-10 px-5 py-2 top-[0px] flex bg-[#1F1E24] items-center justify-center">
             <span className="text-xl h-fit text-zinc-400 font-semibold font-inter flex items-center justify-center">
               <i
                 onClick={() => navigate(-1)}
                 class="ri-arrow-left-line pr-2 cursor-pointer hover:text-[#6556CD]"
               ></i>
-              Trending{" "}
+              Trending <p className="ml-2 text-xs text-zinc-500">({category.split("_").join(" ").toUpperCase()})</p>
             </span>
 
             <div className="flex-1 flex items-center justify-center">

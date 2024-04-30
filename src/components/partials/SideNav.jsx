@@ -15,9 +15,9 @@ const SideNav = () => {
 
           <Link to="/trending" className="py-2 px-3 rounded-lg hover:bg-[#6556CD] hover:text-white duration-200 text-zinc-400"> <i class="ri-fire-fill"></i> Trending</Link>
           <Link to="/popular" className="py-2 px-3 rounded-lg hover:bg-[#6556CD] hover:text-white duration-200 text-zinc-400"> <i class="ri-bard-fill"></i> Popular</Link>
-          <Link className="py-2 px-3 rounded-lg hover:bg-[#6556CD] hover:text-white duration-200 text-zinc-400"> <i class="ri-film-fill"></i> Movies</Link>
-          <Link className="py-2 px-3 rounded-lg hover:bg-[#6556CD] hover:text-white duration-200 text-zinc-400"> <i class="ri-slideshow-fill"></i> Tv Shows</Link>
-          <Link className="py-2 px-3 rounded-lg hover:bg-[#6556CD] hover:text-white duration-200 text-zinc-400"> <i class="ri-team-fill"></i> People</Link>
+          <Link to="/movie" className="py-2 px-3 rounded-lg hover:bg-[#6556CD] hover:text-white duration-200 text-zinc-400"> <i class="ri-film-fill"></i> Movies</Link>
+          <Link to="/tvshow" className="py-2 px-3 rounded-lg hover:bg-[#6556CD] hover:text-white duration-200 text-zinc-400"> <i class="ri-slideshow-fill"></i> Tv Shows</Link>
+          <Link to="/people" className="py-2 px-3 rounded-lg hover:bg-[#6556CD] hover:text-white duration-200 text-zinc-400"> <i class="ri-team-fill"></i> People</Link>
         </nav>
       </div>
 

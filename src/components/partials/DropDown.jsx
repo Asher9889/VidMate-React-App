@@ -8,7 +8,7 @@ const DropDown = ({options, func, title}) => {
         <select onChange={func} className="dropbtn w-full  px-2 rounded-md p-1 outline-none bg-zinc-700 text-zinc-100">
          <option defaultValue="0" >{title}</option>
          {options.map((elem, index)=>(
-          <option key={elem}  value={elem} className="">{elem.toUpperCase()}</option>
+          <option key={elem}  value={elem} className="">{elem.split("_").join(" ").toUpperCase()}</option>
          ))}
          
           
