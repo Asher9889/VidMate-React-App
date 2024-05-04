@@ -23,7 +23,9 @@ const AsyncGetTv = (id) => async (dispatch, getState) => {
       videos: videos.data.results.find(e => (
         (["Official Trailer", "Trailer", "Dub Trailer", "Official Trailer [Subtitled]", "Main Trailer [Subtitled]"].includes(e.name)) ||
         (["YouTube"].includes(e.site))
-      ))
+      )),
+      watchProvider: watchProvider.data.results.IN,
+
     };
     
     console.log(videos);
