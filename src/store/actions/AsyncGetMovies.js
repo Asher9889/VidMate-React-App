@@ -13,7 +13,8 @@ const AsyncGetMovies = (id) => async (dispatch, setState) => {
     const similar = await axios.get(`/movie/${id}/similar`);
     const videos = await axios.get(`/movie/${id}/videos`);
     const watchProvider = await axios.get(`/movie/${id}/watch/providers`);
-
+    
+    console.log(videos)
     // console.log(language)
     const ultimateData = {
       details: details.data,
@@ -21,10 +22,10 @@ const AsyncGetMovies = (id) => async (dispatch, setState) => {
       socialLinks: socialLinks.data,
       recommendations: recommendations.data,
       similar: similar.data,
-      videos: videos.data.results.find((elem) => elem.name === "Official Trailer" || "trailer") ,
+      videos: videos.data.results.find(m => ["Official Trailer", "Original Trailer", "Trailer"].includes(m.name)) ,
       watchProvider: watchProvider.data.results.IN,
     }
-    // console.log(ultimateData)
+    
     dispatch(getMovie(ultimateData))
   } catch (error) {
     console.log("The error got in Async Get Products is: ", error)
@@ -32,3 +33,7 @@ const AsyncGetMovies = (id) => async (dispatch, setState) => {
 };
 
 export  default AsyncGetMovies;
+
+
+
+
