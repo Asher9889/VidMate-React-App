@@ -1,20 +1,16 @@
 import React from "react";
 import DropDown from "./DropDown";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const HorizontalCard = ({ trending, setCategory }) => {
   return (
     <>
-      
-
-      <div className="w-full h-[45vh] rounded-md p-2 mb-6 overflow-y-hidden ">
-        <div className="w-fit h-[40vh] rounded-md overflow-x-scroll    p-1 flex flex-row gap-3  ">
-          {trending.map((elem, index) => (
-            <div
-              key={elem.id}
-              className="w-40 rounded-md h-full bg-zinc-900 shrink-0 "
-            >
-              <div className="w-full h-[50%]">
+      <div className="w-full h-[50vh]  rounded-md p-2 mb-6 overflow-y-hidden ">
+        <div className="w-fit h-[45vh]  rounded-md     p-1 flex flex-row gap-3  ">
+          {trending.map((elem) => (
+            <div key={elem.id} className="w-44 rounded-md h-full bg-zinc-900 shrink-0">
+              <div className="w-full h-[55%]">
                 <img
                   className="w-full h-full object-cover rounded-t-md"
                   src={`https://image.tmdb.org/t/p/original/${elem.backdrop_path}`}
@@ -31,8 +27,9 @@ const HorizontalCard = ({ trending, setCategory }) => {
 
                 <p className="text-xs font-medium ">
                   {elem.overview.slice(0, 60)}{" "}
-                  <span className="text-blue-600">... more</span>
+                  <Link to={`/${elem.media_type}/details/${elem.id}`} className="text-blue-600">... more</Link>
                 </p>
+
               </div>
             </div>
           ))}

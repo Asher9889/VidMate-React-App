@@ -66,7 +66,7 @@ const TvShow = () => {
             loader={<h1>Loading.....</h1>}
           >
 
-           <Card item={tvShow}/>
+           <Card item={tvShow} title="tv"/>
 
           </InfiniteScroll>
 

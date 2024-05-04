@@ -45,3 +45,29 @@
     inset: 0 35px 35px 0;
   }
 }
+
+.glass{
+/* From https://css.glass */
+width: 100vw;
+background: rgba(255, 255, 255, 0.03);
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(1px);
+-webkit-backdrop-filter: blur(1px);
+}
+.toolTip{
+ position: relative;
+ /* background-color: red; */
+}
+.toolText{
+  visibility: hidden;
+  position: absolute;
+  bottom: -8%;
+  left: 6%;
+}
+.toolTip:hover .toolText{
+ visibility: visible;
+}
+.black-mode{
+  --background: rgb(11,13,13);
+  --background-black: linear-gradient(90deg, rgba(11,13,13,0.7091211484593838) 0%, rgba(8,10,10,0.3925945378151261) 53%, rgba(17,18,18,0.7035189075630253) 100%);
+}

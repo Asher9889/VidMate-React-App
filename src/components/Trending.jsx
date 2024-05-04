@@ -36,18 +36,6 @@ const Trending = () => {
     trendingAPI();
   }, [category, duration]);
 
-  // const trendingAPI2 = async () => {
-  //   try {
-  //     setPage(page + 1);
-  //     const d = await axios.get(`/trending?page=${page}`);
-  //     const { results } = d.data;
-  //     // setTrending(results)
-  //     setTrending((prev) => [...prev, ...results]);
-  //     console.log(results);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
 
   return (
     <>
@@ -68,7 +56,7 @@ const Trending = () => {
 
             <DropDown
               title="Category"
-              options={["all", "tv","movie", "person"]}
+              options={["movie","tv", "person","all"]}
               func={(e) => setCategory(e.target.value)}
             />
             <div className="w-4"></div>

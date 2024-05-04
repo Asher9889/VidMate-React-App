@@ -33,22 +33,7 @@ const Popular = () => {
     popularAPI();
   }, [category]);
 
-  // const popularAPI2 = async () => {
-  //   try {
-  //     setPage(page + 1)
-  //     const d = await axios.get(`/${category}/popular?page=${page}`);
-  //     const { results } = d.data;
-  //     setTrending(results)
-  //     // setTrending((prev) => [...prev, ...results]);
-  //     console.log(results);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-  // useEffect(()=>{
-  //   setPopular([])
-  //   popularAPI2()
-  // },[category])
+ 
 
   return (
     <>
@@ -82,7 +67,7 @@ const Popular = () => {
             loader={<h1>Loading.....</h1>}
           >
 
-           <Card item={popular}/>
+           <Card item={popular} title={category}/>
 
           </InfiniteScroll>
 
