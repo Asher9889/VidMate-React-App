@@ -27,7 +27,7 @@ const TopNav = ({ color }) => {
         className={`w-[40vw] h-[10%] mb-2 relative text-zinc-300 ${color} py-2 text-2xl gap-4 mx-auto flex items-center`}
       >
         <div className="w-full py-2 flex items-center">
-          <i class="ri-search-line w-[5%]"></i>
+          <i className="ri-search-line w-[5%]"></i>
           <input
             onChange={(e) => setQuery(e.target.value)}
             value={query}
@@ -36,7 +36,7 @@ const TopNav = ({ color }) => {
             placeholder="Search Something"
           />
           {query != "" ? (
-            <i onClick={() => setQuery("")} class="ri-close-fill w-[5%]"></i>
+            <i onClick={() => setQuery("")} className="ri-close-fill w-[5%]"></i>
           ) : null}
           {
             <div className="absolute z-10 w-[100%] max-h-[500%] top-[110%] bg-zinc-200 overflow-auto rounded-lg ">

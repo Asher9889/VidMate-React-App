@@ -23,7 +23,7 @@ const Home = () => {
       const d = await axios.get("/movie/upcoming");
       const { results } = d.data;
       const singleData = results[Math.floor(Math.random() * results.length)];
-      // console.log(singleData);
+      console.log(singleData);
       setSingleWallpaper(singleData);
     } catch (error) {
       console.log(error);

@@ -42,7 +42,7 @@ const TvShow = () => {
             <span className="text-xl h-fit text-zinc-400 font-semibold font-inter flex items-center justify-center">
               <i
                 onClick={() => navigate(-1)}
-                class="ri-arrow-left-line pr-2 cursor-pointer hover:text-[#6556CD]"
+                className="ri-arrow-left-line pr-2 cursor-pointer hover:text-[#6556CD]"
               ></i>
               Tv Show <p className="ml-2 text-xs text-zinc-500">({category.split("_").join(" ").toUpperCase()})</p>
             </span>

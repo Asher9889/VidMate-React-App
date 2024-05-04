@@ -33,7 +33,11 @@ const Routing = () => {
           <Route path="/movie/details/:id/trailer" element={<Trailer/>}/>
 
         </Route>
-        <Route path="/tv/details/:id" element={<TvDetails />} />
+        <Route path="/tv/details/:id" element={<TvDetails />} >
+
+        <Route path="/tv/details/:id/trailer" element={<Trailer/>}/>
+
+        </Route>
         <Route path="/people/details/:id" element={<PeopleDetails />} />
         {/* <Route path="/all/details/:id" element={<AllDetails />} /> */}
        

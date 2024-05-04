@@ -9,11 +9,11 @@ export const personSlice = createSlice({
   initialState,
   reducers: {
     getPerson: (state, action)=>{
-      state.value = action.payload;
+      state.info = action.payload;
     },
 
     removePerson: (state, actions)=>{
-      state.value = null;
+      state.info = null;
     }
     
   }
