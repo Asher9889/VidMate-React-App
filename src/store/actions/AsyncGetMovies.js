@@ -22,7 +22,8 @@ const AsyncGetMovies = (id) => async (dispatch, setState) => {
       socialLinks: socialLinks.data,
       recommendations: recommendations.data,
       similar: similar.data, 
-      videos: videos.data.results.find(m => ["Official Trailer", "Original Trailer", "Trailer", "Official US Trailer | English Subtitles"].includes(m.name)) ,
+      videos: videos.data.results.find(m => ["Official Trailer", "Original Trailer", "Trailer", "Official US Trailer | English Subtitles"].includes(m.name) ||
+      (["YouTube"].includes(m.site))) ,
       watchProvider: watchProvider.data.results.IN,
     }
     
