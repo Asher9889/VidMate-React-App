@@ -17,7 +17,7 @@ const SideNav = () => {
           <Link to="/popular" className="py-2 px-3 rounded-lg hover:bg-[#6556CD] hover:text-white duration-200 text-zinc-400"> <i className="ri-bard-fill"></i> Popular</Link>
           <Link to="/movie" className="py-2 px-3 rounded-lg hover:bg-[#6556CD] hover:text-white duration-200 text-zinc-400"> <i className="ri-film-fill"></i> Movies</Link>
           <Link to="/tv" className="py-2 px-3 rounded-lg hover:bg-[#6556CD] hover:text-white duration-200 text-zinc-400"> <i className="ri-slideshow-fill"></i> Tv Shows</Link>
-          <Link to="/people" className="py-2 px-3 rounded-lg hover:bg-[#6556CD] hover:text-white duration-200 text-zinc-400"> <i className="ri-team-fill"></i> People</Link>
+          <Link to="/person" className="py-2 px-3 rounded-lg hover:bg-[#6556CD] hover:text-white duration-200 text-zinc-400"> <i className="ri-team-fill"></i> People</Link>
         </nav>
       </div>
 

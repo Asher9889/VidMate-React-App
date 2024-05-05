@@ -10,9 +10,11 @@ import HorizontalCard from "./partials/HorizontalCard.jsx";
 import WIKI2 from "../assets/social.png"
 
 const MovieDetails = () => {
+  const { info } = useSelector((state) => state.movieReducer);
   const { id } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+ 
 
   useEffect(() => {
     dispatch(AsyncGetMovie(id));
@@ -21,7 +23,6 @@ const MovieDetails = () => {
     };
   }, [id]);
 
-  const { info } = useSelector((state) => state.movieReducer);
 
   console.log(info);
 
@@ -77,7 +78,7 @@ const MovieDetails = () => {
           {/* for image and content */}
 
           <div
-            className="relative w-full pt-[20vh] h-fit pb-8 pt-[5%] pl-[8%] pr-10"
+            className="relative w-full pt-[21vh] h-fit pb-8 pt-[5%] pl-[8%] pr-10"
             style={{
               background: `linear-gradient(90deg, rgba(11,13,13,1) 0%, rgba(8,10,10,0.3925945378151261) 53%, rgba(17,18,18,0.7035189075630253) 100%),url(https://image.tmdb.org/t/p/original/${info.details.backdrop_path})`,
               backgroundPosition: "center",
@@ -116,7 +117,7 @@ const MovieDetails = () => {
                   </h3>
                 </span>
 
-                <div className="flex items-center gap-6 font-semibold text-inter tracking-[0.5px] ">
+                <div className="flex items-center my-4 gap-6 font-semibold text-inter tracking-[0.5px] ">
                  
                   <Link to={`/movie/details/${id}/trailer`} className="block transition-colors font-bold text-lg flex items-center gap-2 text-white hover:bg-zinc-100 hover:text-black bg-transperant border-2 border-white px-4 py-2 rounded-md">
                     View Trailer <i className="ri-play-large-line text-2xl"></i>

@@ -19,13 +19,10 @@ const Routing = () => {
         <Route path="/" element={<Home />} />
         <Route path="/trending" element={<Trending />} />
         <Route path="/popular" element={<Popular />} />
-        <Route path="/movie" element={<Movie />}>
+        <Route path="/movie" element={<Movie />}/>
 
-          
-
-        </Route>
         <Route path="/tv" element={<TvShow />}/>
-        <Route path="/people" element={<People />}/>
+        <Route path="/person" element={<People />}/>
 
         
         <Route path="/movie/details/:id" element={<MovieDetails />} >
@@ -33,12 +30,14 @@ const Routing = () => {
           <Route path="/movie/details/:id/trailer" element={<Trailer/>}/>
 
         </Route>
+
         <Route path="/tv/details/:id" element={<TvDetails />} >
 
         <Route path="/tv/details/:id/trailer" element={<Trailer/>}/>
 
         </Route>
-        <Route path="/people/details/:id" element={<PeopleDetails />} />
+
+        <Route path="/person/details/:id" element={<PeopleDetails />} />
         {/* <Route path="/all/details/:id" element={<AllDetails />} /> */}
        
       </Routes>

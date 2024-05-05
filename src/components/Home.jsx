@@ -69,7 +69,7 @@ const Home = () => {
             />
           </div>
 
-          <HorizontalCard trending={trending} setCategory={setCategory} />
+          <HorizontalCard trending={trending} />
         </div>
       </div>
     ) : <Loading/>}

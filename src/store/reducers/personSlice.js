@@ -12,12 +12,12 @@ export const personSlice = createSlice({
       state.info = action.payload;
     },
 
-    removePerson: (state, actions)=>{
+    removePerson: (state, action)=>{
       state.info = null;
     }
     
   }
 })
 
-export const {showPerson, removePerson} = personSlice.actions;
+export const {getPerson, removePerson} = personSlice.actions;
 export default personSlice.reducer;

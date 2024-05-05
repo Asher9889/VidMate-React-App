@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import TopNav from "./partials/TopNav";
 import DropDown from "./partials/DropDown";
 import { useState, useEffect } from "react";
@@ -10,11 +10,11 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 
 const People = () => {
   const navigate = useNavigate();
+  const {id} = useParams()
   
   const [people, setPeople] = useState([]);
   let [page, setPage] = useState(1);
   
-  document.title = "Movie "
   const peopleAPI = async () => {
     try {
       setPage(page + 1)
@@ -22,7 +22,7 @@ const People = () => {
       const { results } = d.data;
       // setPopular(results)
       setPeople((prev) => [...prev, ...results]);
-      console.log(results);
+      // console.log(results);
     } catch (error) {
       console.log(error);
     }
@@ -35,7 +35,7 @@ const People = () => {
   return (
     <>
       {people.length > 0 ? (
-        <div className="w-full h-fit  bg-[#1F1E24] ">
+        <div className="w-full  bg-[#1F1E24] ">
           <div className="w-full sticky z-10 px-4 py-2 top-[0px] flex bg-[#1F1E24] items-center justify-center">
             <span className="text-xl h-fit text-zinc-400 font-semibold font-inter flex items-center justify-center">
               <i

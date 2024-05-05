@@ -3,10 +3,10 @@ import DropDown from "./DropDown";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-const HorizontalCard = ({ trending, setCategory }) => {
+const HorizontalCard = ({ trending}) => {
   return (
     <>
-      <div className="w-full h-[50vh]  rounded-md p-2 mb-6 overflow-y-hidden ">
+      {trending && <div className="w-full h-[50vh]  rounded-md p-2 mb-6 overflow-y-hidden ">
         <div className="w-fit h-[45vh]  rounded-md     p-1 flex flex-row gap-3  ">
           {trending.map((elem) => (
             <div key={elem.id} className="w-44 rounded-md h-full bg-zinc-900 shrink-0">
@@ -34,7 +34,7 @@ const HorizontalCard = ({ trending, setCategory }) => {
             </div>
           ))}
         </div>
-      </div>
+      </div>}
     </>
   );
 };

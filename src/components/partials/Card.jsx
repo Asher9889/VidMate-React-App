@@ -8,7 +8,7 @@ const Card = ({item, title}) => {
     <div  className="w-full  h-fit px-5  mt-4 flex pb-8 gap-6 flex-wrap">
             {item.map((elem, index) => (
               
-              <Link to={`/${elem.media_type || title}/details/${elem.id}`} key={elem.id}  className="relative bg-zinc-900 mx-auto w-56 shadow-[5px_5px_5px_5px_rgb(0_0_0_/_50%)]">
+              <Link to={`/${title || elem.media_type }/details/${elem.id}`} key={elem.id}  className="relative bg-zinc-900 mx-auto w-56 shadow-[5px_5px_5px_5px_rgb(0_0_0_/_50%)]">
                 <img
                   className="w-56"
                   src={`https://image.tmdb.org/t/p/original/${elem.poster_path || elem.

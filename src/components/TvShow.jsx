@@ -15,7 +15,7 @@ const TvShow = () => {
   const [tvShow, setTvShow] = useState([]);
   let [page, setPage] = useState(1);
   
-  document.title = "Movie " + category.split("_").join(" ").toUpperCase();
+  document.title = "TV " + category.split("_").join(" ").toUpperCase();
   const tvShowAPI = async () => {
     try {
       setPage(page + 1)

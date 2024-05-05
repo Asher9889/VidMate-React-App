@@ -4,11 +4,14 @@ import { useSelector } from "react-redux";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 const Trailer = () => {
+
   const {pathname} = useLocation();
   const category = pathname.includes("movie") ? "movie" : "tv";
+  const { info } = useSelector((state) => state[category+"Reducer"]);
+
+  document.title = (info.details.name || info.details.original_language) + " " + category.toLocaleUpperCase() + " Trailer"
   console.log(category)
   const navigate = useNavigate()
-  const { info } = useSelector((state) => state[category+"Reducer"]);
 
   console.log(info)
 
